@@ -1,0 +1,2 @@
+streamlit==0.83.0
+plotly==4.14.3
