@@ -1,7 +1,24 @@
 import streamlit as st
-import pandas as pd
 from graph_controls import graph_controls
+import pandas as pd
 
+
+# change max message size which can be sent via websocket
+st.server.server_util.MESSAGE_SIZE_LIMIT = 300 * 1e6
+
+
+@st.cache
+def load_dataframe(uploaded_file):
+    try:
+        df = pd.read_csv(uploaded_file)
+    except Exception as e:
+        print(e)
+        df = pd.read_excel(uploaded_file)
+
+    columns = list(df.columns)
+    columns.append(None)
+
+    return df, columns
 
 st.header("Welcome to OpenCharts")
 st.write("Beautiful visualization should be free and accessible to all.")
@@ -32,16 +49,9 @@ uploaded_file = st.sidebar.file_uploader(label="Upload your csv or excel file he
 
 global df
 if uploaded_file is not None:
-    try:
-        df = pd.read_csv(uploaded_file)
-    except Exception as e:
-        print(e)
-        df = pd.read_excel(uploaded_file)
+    df, columns = load_dataframe(uploaded_file=uploaded_file)
 
-    columns = list(df.columns)
-    columns.append(None)
-
-    show_data = st.sidebar.checkbox(label='SHow data')
+    show_data = st.sidebar.checkbox(label='Show data')
 
     if show_data:
         number_of_rows = st.sidebar.number_input(label='Select number of rows',min_value=2)
