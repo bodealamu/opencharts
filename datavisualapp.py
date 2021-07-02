@@ -1,24 +1,11 @@
 import streamlit as st
 from graph_controls import graph_controls
-import pandas as pd
+from utility import load_dataframe
 
 
 # change max message size which can be sent via websocket
 st.server.server_util.MESSAGE_SIZE_LIMIT = 300 * 1e6
 
-
-@st.cache
-def load_dataframe(uploaded_file):
-    try:
-        df = pd.read_csv(uploaded_file)
-    except Exception as e:
-        print(e)
-        df = pd.read_excel(uploaded_file)
-
-    columns = list(df.columns)
-    columns.append(None)
-
-    return df, columns
 
 st.header("Welcome to OpenCharts")
 st.write("Beautiful visualization should be free and accessible to all.")

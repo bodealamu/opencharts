@@ -3,6 +3,7 @@ import io
 import streamlit as st
 
 
+@st.cache
 def download_chart(plot):
     st.markdown('### Download image')
     output_format = st.selectbox(label='Select download format', options=['.png', '.jpeg', '.pdf','.svg',
