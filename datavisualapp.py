@@ -11,12 +11,6 @@ st.subheader('About')
 st.write("OpenCharts is an open source and free data "
                  "visualization web app built using Streamlit "
                  "and Plotly." )
-st.subheader("Data safety and security")
-st.write("'The data you upload is safe and does not "
-                 "leave your computer and is never stored anywhere.")
-
-st.subheader('Contact me')
-st.write("You can contact me on linkedin https://www.linkedin.com/in/olabode-alamu/")
 
 st.sidebar.subheader('Maintenance')
 st.sidebar.write("This app is maintained by Olabode Alamu, "
@@ -66,6 +60,14 @@ if uploaded_file is not None:
                                                'Histogram','Box plots', 'Violin plots', ]) #'Line plots',
 
     graph_controls(chart_type=chart_type, df=df, dropdown_options=columns, template=theme_selection)
+
+else:
+    st.subheader("Data safety and security")
+    st.write("'The data you upload is safe and does not "
+             "leave your computer and is never stored anywhere.")
+
+    st.subheader('Contact me')
+    st.write("You can contact me on linkedin https://www.linkedin.com/in/olabode-alamu/")
 
 
 
