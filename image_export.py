@@ -4,10 +4,7 @@ import streamlit as st
 
 
 @st.cache
-def download_chart(plot):
-    st.markdown('### Download image')
-    output_format = st.selectbox(label='Select download format', options=['.png', '.jpeg', '.pdf','.svg',
-                                                                          '.html', '.json'])
+def download_chart(plot, output_format):
 
     file_name_with_extension = 'image1' + output_format
 
@@ -49,4 +46,5 @@ def download_chart(plot):
 
         href = f'<a download={file_name_with_extension} href="data:file/pdf;base64,{encoding}" >Download</a>'
 
-    st.markdown(href, unsafe_allow_html=True)
+    return href
+

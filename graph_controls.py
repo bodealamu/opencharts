@@ -197,6 +197,10 @@ def graph_controls(chart_type, df, dropdown_options, template):
         except Exception as e:
             print(e)
     try:
-        download_chart(plot)
+        st.markdown('### Download image')
+        output_format = st.selectbox(label='Select download format', options=['.png', '.jpeg', '.pdf', '.svg',
+                                                                              '.html', '.json'])
+        href = download_chart(plot, output_format=output_format)
+        st.markdown(href, unsafe_allow_html=True)
     except Exception as e:
         print(e)
