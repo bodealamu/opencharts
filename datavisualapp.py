@@ -16,7 +16,7 @@ st.sidebar.subheader('Maintenance')
 st.sidebar.write("This app is maintained by Olabode Alamu, "
                  "if you would like to contribute to the code, please do a pull request.")
 
-st.sidebar.subheader("Buy me a beer / server plan")
+st.sidebar.subheader("Buy me a server plan")
 st.sidebar.write("This app is deployed on Digital ocean and is non-profit. "
                  "If you would like to support this cause with server costs, feel free to use the link below.")
 st.sidebar.write('https://www.buymeacoffee.com/olabodealamu')
