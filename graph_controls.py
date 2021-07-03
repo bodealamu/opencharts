@@ -1,6 +1,6 @@
 import streamlit as st
 import plotly.express as px
-from image_export import download_chart
+from image_export import download_chart, show_export_format
 
 
 def graph_controls(chart_type, df, dropdown_options, template):
@@ -46,8 +46,10 @@ def graph_controls(chart_type, df, dropdown_options, template):
                               facet_col=facet_column_value,
                               log_x=log_x, log_y=log_y,marginal_y=marginaly, marginal_x=marginalx,
                               template=template, title=title)
+            st.subheader("Chart")
             # display the chart
             st.plotly_chart(plot)
+            show_export_format(plot)
         except Exception as e:
             print(e)
 
@@ -83,8 +85,10 @@ def graph_controls(chart_type, df, dropdown_options, template):
                                 facet_row=facet_row_value,nbins=nbins,
                                 facet_col=facet_column_value,log_x=log_x,
                                 log_y=log_y,template=template, title=title)
+            st.subheader("Chart")
             # display the chart
             st.plotly_chart(plot)
+            show_export_format(plot)
         except Exception as e:
             print(e)
 
@@ -138,8 +142,10 @@ def graph_controls(chart_type, df, dropdown_options, template):
                              facet_col=facet_column_value,box=box,
                              log_x=log_x, log_y=log_y,violinmode=violinmode,points=outliers,
                              template=template, title=title)
+            st.subheader("Chart")
             # display the chart
             st.plotly_chart(plot)
+            show_export_format(plot)
         except Exception as e:
             print(e)
 
@@ -166,8 +172,11 @@ def graph_controls(chart_type, df, dropdown_options, template):
                           facet_col=facet_column_value, notched=notched,
                           log_x=log_x, log_y=log_y, boxmode=boxmode, points=outliers,
                           template=template, title=title)
+            st.subheader("Chart")
+
             # display the chart
             st.plotly_chart(plot)
+            show_export_format(plot)
         except Exception as e:
             print(e)
 
@@ -200,15 +209,10 @@ def graph_controls(chart_type, df, dropdown_options, template):
                                       facet_col=facet_column_value,log_x=log_x,
                                       log_y=log_y,marginal_y=marginaly, marginal_x=marginalx,
                                       template=template, title=title)
+            st.subheader("Chart")
+
             # display the chart
             st.plotly_chart(plot)
+            show_export_format(plot)
         except Exception as e:
             print(e)
-    try:
-        st.markdown('### Download image')
-        output_format = st.selectbox(label='Select download format', options=['.png', '.jpeg', '.pdf', '.svg',
-                                                                              '.html', '.json'])
-        href = download_chart(plot, output_format=output_format)
-        st.markdown(href, unsafe_allow_html=True)
-    except Exception as e:
-        print(e)

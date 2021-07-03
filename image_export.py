@@ -54,3 +54,14 @@ def download_chart(plot, output_format):
 
     return href
 
+
+def show_export_format(plot):
+    try:
+        st.subheader('Export image')
+        output_format = st.selectbox(label='Select download format', options=['.png', '.jpeg', '.pdf', '.svg',
+                                                                              '.html', '.json'])
+        href = download_chart(plot, output_format=output_format)
+        st.markdown(href, unsafe_allow_html=True)
+    except Exception as e:
+        print(e)
+
