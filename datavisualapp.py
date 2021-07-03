@@ -8,33 +8,27 @@ st.server.server_util.MESSAGE_SIZE_LIMIT = 300 * 1e6
 
 
 st.header("Welcome to OpenCharts")
-st.write("Beautiful visualization should be free and accessible to all.")
+st.write("Beautiful visualization tools should be free and accessible to all.")
 st.write('Upload your csv or excel file to get started.')
 
 st.subheader('About')
-st.write("OpenCharts is an open source and free data "
-                 "visualization web app built using Streamlit "
-                 "and Plotly." )
+st.write("OpenCharts is an open source and free data " "visualization web app built using Streamlit " )
 
 st.sidebar.subheader('Maintenance')
-st.sidebar.write("This app is maintained by Olabode Alamu, "
+st.sidebar.write("This app is open source and maintained by Olabode Alamu, "
                  "if you would like to contribute to the code, please do a pull request.")
 
-st.sidebar.subheader("Buy me a server plan")
-st.sidebar.write("This app is deployed on Digital ocean and is non-profit. "
-                 "If you would like to support this cause with server costs, feel free to use the link below.")
+st.sidebar.subheader("Sever costs")
+st.sidebar.write("Sever costs for this app is community funded, if you would like to donate please use link below.")
 st.sidebar.write('https://www.buymeacoffee.com/olabodealamu')
 
 st.sidebar.subheader('Settings')
-# st.sidebar.markdown(### Welcome to OpenCharts, an open source data visualization web application. Contributors to the code are welcome and encouraged)
 
 st.sidebar.subheader("Upload your data")
 uploaded_file = st.sidebar.file_uploader(label="Upload your csv or excel file here.",
                                          accept_multiple_files=False,
                                          type=['csv', 'xlsx'])
 
-
-global df
 if uploaded_file is not None:
     df, columns = load_dataframe(uploaded_file=uploaded_file)
 
@@ -60,8 +54,7 @@ if uploaded_file is not None:
 
 else:
     st.subheader("Data safety and security")
-    st.write("'The data you upload is safe and does not "
-             "leave your computer and is never stored anywhere.")
+    st.write("'The data you upload is safe and is never stored anywhere.")
 
     st.subheader('Contact me')
     st.write("You can contact me on linkedin https://www.linkedin.com/in/olabode-alamu/")
