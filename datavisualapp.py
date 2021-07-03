@@ -14,6 +14,7 @@ st.write('Upload your csv or excel file to get started.')
 st.subheader('About')
 st.write("OpenCharts is an open source and free data " "visualization web app built using Streamlit " )
 
+st.sidebar.radio(label='Links', options=['Home', 'About', 'Tutorial'])
 st.sidebar.subheader('Maintenance')
 st.sidebar.write("This app is open source and maintained by Olabode Alamu, "
                  "if you would like to contribute to the code, please do a pull request.")
