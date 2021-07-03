@@ -5,6 +5,12 @@ import streamlit as st
 
 @st.cache
 def download_chart(plot, output_format):
+    """
+
+    :param plot: plotly figure
+    :param output_format: str, the required output format in string
+    :return:
+    """
 
     file_name_with_extension = 'image1' + output_format
 

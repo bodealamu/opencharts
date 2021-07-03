@@ -4,6 +4,14 @@ from image_export import download_chart
 
 
 def graph_controls(chart_type, df, dropdown_options, template):
+    """
+    Function which determines the widgets that would be shown for the different chart types
+    :param chart_type: str, name of chart
+    :param df: uploaded dataframe
+    :param dropdown_options: list of column names
+    :param template: str, representation of the selected theme
+    :return:
+    """
     length_of_options = len(dropdown_options)
     length_of_options -= 1
 
