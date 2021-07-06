@@ -1,6 +1,7 @@
 import streamlit as st
-from graph_controls import graph_controls
-from utility import load_dataframe
+from src.graph_controls import graph_controls
+from src.utility import load_dataframe
+from streamlit.components.v1 import iframe
 
 
 def fixed_content():
@@ -18,6 +19,11 @@ def fixed_content():
 
 
 def views(link):
+    """
+    Helper function for directing users to various pages.
+    :param link: str, option selected from the radio button
+    :return:
+    """
     if link == 'Home':
         st.header("Welcome to OpenCharts")
         st.write("OpenCharts is an open source and community funded  web tool "
@@ -74,8 +80,23 @@ def views(link):
         fixed_content()
 
     if link == 'Tutorial':
-        st.header("Coming soon")
+        st.header("Tutorial")
         fixed_content()
+        tutorial_video = st.selectbox(label='I would like to learn how to create ',
+                                      options=['Scatterplots', 'Boxplots', 'Violinplots',
+                                               'Histogram', 'Density Contour Charts'])
+        if tutorial_video == 'Scatterplots':
+            iframe(width=800,height=450,  src="https://www.youtube.com/embed/e_V_GwWjzH8")
+
+        if tutorial_video == "Boxplots":
+            iframe(width=800, height=450, src="https://www.youtube.com/embed/Q3fOS6hbi-8")
+
+        if tutorial_video == 'Violinplots':
+            iframe(width=800, height=450, src="https://www.youtube.com/embed/mjnsKF1I72g")
+
+        if tutorial_video == 'Density Contour Charts':
+            iframe(width=800, height=450, src="https://www.youtube.com/embed/C3tDr6T9hNY")
+
 
 
 

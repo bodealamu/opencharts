@@ -1,6 +1,6 @@
 import streamlit as st
 import plotly.express as px
-from image_export import download_chart, show_export_format
+from src.image_export import show_export_format
 
 
 def graph_controls(chart_type, df, dropdown_options, template):
