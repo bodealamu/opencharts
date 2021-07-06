@@ -1,6 +1,6 @@
 import streamlit as st
-from graph_controls import graph_controls
-from utility import load_dataframe
+from src.graph_controls import graph_controls
+from src.utility import load_dataframe
 
 
 def fixed_content():
