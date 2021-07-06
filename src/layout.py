@@ -88,7 +88,14 @@ def views(link):
         if tutorial_video == 'Scatterplots':
             iframe(width=800,height=450,  src="https://www.youtube.com/embed/e_V_GwWjzH8")
 
+        if tutorial_video == "Boxplots":
+            iframe(width=800, height=450, src="https://www.youtube.com/embed/Q3fOS6hbi-8")
 
+        if tutorial_video == 'Violinplots':
+            iframe(width=800, height=450, src="https://www.youtube.com/embed/mjnsKF1I72g")
+
+        if tutorial_video == 'Density Contour Charts':
+            iframe(width=800, height=450, src="https://www.youtube.com/embed/C3tDr6T9hNY")
 
 
 
