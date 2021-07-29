@@ -76,7 +76,7 @@ def views(link):
         st.header('About')
         st.write("OpenCharts is an open source and free data " "visualization web app built using Streamlit ")
         st.subheader('Contact me')
-        st.write("You can contact me on linkedin https://www.linkedin.com/in/olabode-alamu/")
+        st.write("You can contact Olabode Alamu on linkedin https://www.linkedin.com/in/olabode-alamu/")
         fixed_content()
 
     if link == 'Tutorial':
