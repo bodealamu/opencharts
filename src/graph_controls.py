@@ -104,13 +104,18 @@ def graph_controls(chart_type, df, dropdown_options, template):
     #         log_x = st.sidebar.selectbox('Log axis on x', options=[True, False])
     #         log_y = st.sidebar.selectbox('Log axis on y', options=[True, False])
     #         title = st.sidebar.text_input(label='Title of chart')
-    #         print(y_values)
-    #         plot = px.line(data_frame=df,line_group=line_group, line_dash=line_dash,
-    #                        x=x_values,y=y_values,color=color_value,hover_name=hover_name_value,
-    #                        facet_row=facet_row_value,facet_col=facet_column_value,log_x=log_x,
-    #                        log_y=log_y,template=template, title=title)
-    #         # display the chart
-    #         st.plotly_chart(plot)
+    #         plot = px.line(data_frame=df,
+    #                        line_group=line_group,
+    #                        line_dash=line_dash,
+    #                        x=x_values,y=y_values,
+    #                        color=color_value,
+    #                        hover_name=hover_name_value,
+    #                        facet_row=facet_row_value,
+    #                        facet_col=facet_column_value,
+    #                        log_x=log_x,
+    #                        log_y=log_y,
+    #                        template=template,
+    #                        title=title)
     #     except Exception as e:
     #         print(e)
 
