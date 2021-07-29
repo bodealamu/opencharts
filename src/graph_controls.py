@@ -199,6 +199,20 @@ def graph_controls(chart_type, df, dropdown_options, template):
         except Exception as e:
             print(e)
 
+    if chart_type == 'Pie Charts':
+        st.sidebar.subheader('Pie Chart Settings')
+
+        try:
+            name_value = st.sidebar.selectbox(label='Name', options=dropdown_options)
+            color_value = st.sidebar.selectbox(label='Color', options=dropdown_options)
+            value = st.sidebar.selectbox("Value", index=length_of_options, options=dropdown_options)
+            title = st.sidebar.text_input(label='Title of chart')
+
+            plot = px.pie(data_frame=df,names=name_value,values=value,color=color_value, title=title)
+
+        except Exception as e:
+            print(e)
+
     if chart_type == 'Density contour':
         st.sidebar.subheader("Density contour Settings")
 
@@ -235,3 +249,12 @@ def graph_controls(chart_type, df, dropdown_options, template):
     st.subheader("Chart")
     st.plotly_chart(plot)
     show_export_format(plot)
+
+
+# plot = px.pie(
+#     data_frame=df,
+#     values='tip',
+#     names='sex',
+#     title="Case study Distribution of tips by gender"
+#
+# )
