@@ -115,7 +115,7 @@ def graph_controls(chart_type, df, dropdown_options, template):
     #         print(e)
 
     if chart_type == 'Violin plots':
-        st.sidebar.subheader('Violin plots')
+        st.sidebar.subheader('Violin plot Settings')
 
         try:
             x_values = st.sidebar.selectbox('X axis', index=length_of_options,options=dropdown_options)
@@ -143,7 +143,7 @@ def graph_controls(chart_type, df, dropdown_options, template):
             print(e)
 
     if chart_type == 'Box plots':
-        st.sidebar.subheader('Box plots')
+        st.sidebar.subheader('Box plot Settings')
 
         try:
             x_values = st.sidebar.selectbox('X axis', index=length_of_options, options=dropdown_options)
@@ -170,7 +170,7 @@ def graph_controls(chart_type, df, dropdown_options, template):
             print(e)
 
     if chart_type == 'Sunburst':
-        st.sidebar.subheader('Sunburst Charts')
+        st.sidebar.subheader('Sunburst Settings')
 
         try:
             path_value = st.sidebar.multiselect(label='Path', options=dropdown_options)
@@ -180,6 +180,21 @@ def graph_controls(chart_type, df, dropdown_options, template):
 
             plot = px.sunburst(data_frame=df,path=path_value,values=value,
                                color=color_value, title=title )
+
+        except Exception as e:
+            print(e)
+
+    if chart_type == 'Tree maps':
+        st.sidebar.subheader('Tree maps Settings')
+
+        try:
+            path_value = st.sidebar.multiselect(label='Path', options=dropdown_options)
+            color_value = st.sidebar.selectbox(label='Color', options=dropdown_options)
+            value = st.sidebar.selectbox("Value", index=length_of_options, options=dropdown_options)
+            title = st.sidebar.text_input(label='Title of chart')
+
+            plot = px.treemap(data_frame=df,path=path_value,values=value,
+                              color=color_value, title=title )
 
         except Exception as e:
             print(e)
