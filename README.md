@@ -16,6 +16,10 @@ It allows anyone create beautiful charts from their data with only a few clicks,
  3) Box plots
  4) Violin plots
  5) Scatter plots. <br>
+ 6) Pie
+ 7) Sunburst
+ 8) Treemap
+ 9) Density heatmap
  
  Much more charts would be added in time. These charts can be exported in 
  different formats such as:<br>
@@ -32,7 +36,7 @@ I believe that people should be able to create beautiful charts without
 burning a hole in their pocket. The future versions of this app would 
 incorporate the following features:<br>
 1) Support for the following chart types - lineplots, areaplots, barplots,
- pie, sunburst, treemap, density heatmap, scatter matrix and chloropleth.
+  scatter matrix and chloropleth.
 2) Some basic dataframe capabilities such as - data type setup for each column, 
 dropping of columns, etc. 
 3) (Stretch goal) Support for data import from other locations (for e.g. database,  url links).
