@@ -203,12 +203,14 @@ def graph_controls(chart_type, df, dropdown_options, template):
         st.sidebar.subheader('Pie Chart Settings')
 
         try:
-            name_value = st.sidebar.selectbox(label='Name', options=dropdown_options)
-            color_value = st.sidebar.selectbox(label='Color', options=dropdown_options)
+            name_value = st.sidebar.selectbox(label='Name (Selected Column should be categorical)', options=dropdown_options)
+            color_value = st.sidebar.selectbox(label='Color(Selected Column should be categorical)', options=dropdown_options)
             value = st.sidebar.selectbox("Value", index=length_of_options, options=dropdown_options)
+            hole = st.sidebar.selectbox('Log axis on y', options=[True, False])
             title = st.sidebar.text_input(label='Title of chart')
 
-            plot = px.pie(data_frame=df,names=name_value,values=value,color=color_value, title=title)
+            plot = px.pie(data_frame=df,names=name_value,hole=hole,
+                          values=value,color=color_value, title=title)
 
         except Exception as e:
             print(e)
@@ -241,6 +243,38 @@ def graph_controls(chart_type, df, dropdown_options, template):
                                       hover_name=hover_name_value,facet_row=facet_row_value,
                                       facet_col=facet_column_value,log_x=log_x,
                                       log_y=log_y,marginal_y=marginaly, marginal_x=marginalx,
+                                      template=template, title=title)
+
+        except Exception as e:
+            print(e)
+
+    if chart_type == 'Density heatmaps':
+        st.sidebar.subheader("Density heatmap Settings")
+
+        try:
+            x_values = st.sidebar.selectbox('X axis', index=length_of_options, options=dropdown_options)
+            y_values = st.sidebar.selectbox('Y axis', index=length_of_options, options=dropdown_options)
+            z_value = st.sidebar.selectbox("Z axis", index=length_of_options, options=dropdown_options)
+            hist_func = st.sidebar.selectbox('Histogram aggregation function', index=0,
+                                             options=['count', 'sum', 'avg', 'min', 'max'])
+            histnorm = st.sidebar.selectbox('Hist norm', options=[None, 'percent', 'probability', 'density',
+                                                                  'probability density'], index=0)
+            hover_name_value = st.sidebar.selectbox("Hover name", index=length_of_options, options=dropdown_options)
+            facet_row_value = st.sidebar.selectbox("Facet row", index=length_of_options, options=dropdown_options, )
+            facet_column_value = st.sidebar.selectbox("Facet column", index=length_of_options,
+                                                      options=dropdown_options)
+            marginalx = st.sidebar.selectbox("Marginal X", index=2, options=['rug', 'box', None,
+                                                                             'violin', 'histogram'])
+            marginaly = st.sidebar.selectbox("Marginal Y", index=2, options=['rug', 'box', None,
+                                                                             'violin', 'histogram'])
+            log_x = st.sidebar.selectbox('Log axis on x', options=[True, False], index=1)
+            log_y = st.sidebar.selectbox('Log axis on y', options=[True, False], index=1)
+            title = st.sidebar.text_input(label='Title of chart')
+            plot = px.density_heatmap(data_frame=df, x=x_values, y=y_values,
+                                      z=z_value, histfunc=hist_func, histnorm=histnorm,
+                                      hover_name=hover_name_value, facet_row=facet_row_value,
+                                      facet_col=facet_column_value, log_x=log_x,
+                                      log_y=log_y, marginal_y=marginaly, marginal_x=marginalx,
                                       template=template, title=title)
 
         except Exception as e:
