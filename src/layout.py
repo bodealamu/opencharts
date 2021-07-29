@@ -67,7 +67,7 @@ def views(link):
                                                             'seaborn', 'simple_white'])
             st.sidebar.subheader("Chart selection")
             chart_type = st.sidebar.selectbox(label="Select your chart type.",
-                                              options=['Scatter plots', 'Density contour',
+                                              options=['Scatter plots', 'Density contour','Sunburst',
                                                        'Histogram', 'Box plots', 'Violin plots', ])  # 'Line plots',
 
             graph_controls(chart_type=chart_type, df=df, dropdown_options=columns, template=theme_selection)

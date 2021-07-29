@@ -15,6 +15,8 @@ def graph_controls(chart_type, df, dropdown_options, template):
     length_of_options = len(dropdown_options)
     length_of_options -= 1
 
+    plot = px.scatter()
+
     if chart_type == 'Scatter plots':
         st.sidebar.subheader("Scatterplot Settings")
 
@@ -46,10 +48,7 @@ def graph_controls(chart_type, df, dropdown_options, template):
                               facet_col=facet_column_value,
                               log_x=log_x, log_y=log_y,marginal_y=marginaly, marginal_x=marginalx,
                               template=template, title=title)
-            st.subheader("Chart")
-            # display the chart
-            st.plotly_chart(plot)
-            show_export_format(plot)
+
         except Exception as e:
             print(e)
 
@@ -85,10 +84,7 @@ def graph_controls(chart_type, df, dropdown_options, template):
                                 facet_row=facet_row_value,nbins=nbins,
                                 facet_col=facet_column_value,log_x=log_x,
                                 log_y=log_y,template=template, title=title)
-            st.subheader("Chart")
-            # display the chart
-            st.plotly_chart(plot)
-            show_export_format(plot)
+
         except Exception as e:
             print(e)
 
@@ -142,10 +138,7 @@ def graph_controls(chart_type, df, dropdown_options, template):
                              facet_col=facet_column_value,box=box,
                              log_x=log_x, log_y=log_y,violinmode=violinmode,points=outliers,
                              template=template, title=title)
-            st.subheader("Chart")
-            # display the chart
-            st.plotly_chart(plot)
-            show_export_format(plot)
+
         except Exception as e:
             print(e)
 
@@ -172,11 +165,22 @@ def graph_controls(chart_type, df, dropdown_options, template):
                           facet_col=facet_column_value, notched=notched,
                           log_x=log_x, log_y=log_y, boxmode=boxmode, points=outliers,
                           template=template, title=title)
-            st.subheader("Chart")
 
-            # display the chart
-            st.plotly_chart(plot)
-            show_export_format(plot)
+        except Exception as e:
+            print(e)
+
+    if chart_type == 'Sunburst':
+        st.sidebar.subheader('Sunburst Charts')
+
+        try:
+            path_value = st.sidebar.multiselect(label='Path', options=dropdown_options)
+            color_value = st.sidebar.selectbox(label='Color', options=dropdown_options)
+            value = st.sidebar.selectbox("Value", index=length_of_options, options=dropdown_options)
+            title = st.sidebar.text_input(label='Title of chart')
+
+            plot = px.sunburst(data_frame=df,path=path_value,values=value,
+                               color=color_value, title=title )
+
         except Exception as e:
             print(e)
 
@@ -209,10 +213,10 @@ def graph_controls(chart_type, df, dropdown_options, template):
                                       facet_col=facet_column_value,log_x=log_x,
                                       log_y=log_y,marginal_y=marginaly, marginal_x=marginalx,
                                       template=template, title=title)
-            st.subheader("Chart")
 
-            # display the chart
-            st.plotly_chart(plot)
-            show_export_format(plot)
         except Exception as e:
             print(e)
+
+    st.subheader("Chart")
+    st.plotly_chart(plot)
+    show_export_format(plot)
