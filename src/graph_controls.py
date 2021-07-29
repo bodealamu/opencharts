@@ -250,11 +250,3 @@ def graph_controls(chart_type, df, dropdown_options, template):
     st.plotly_chart(plot)
     show_export_format(plot)
 
-
-# plot = px.pie(
-#     data_frame=df,
-#     values='tip',
-#     names='sex',
-#     title="Case study Distribution of tips by gender"
-#
-# )
