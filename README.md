@@ -3,6 +3,8 @@ OpenCharts is a community-driven, open source and FREE data visualization
 web app created using Streamlit, 
 Pandas and Plotly Express.<br>
 
+![Screenshot](logo.jpg)
+
 https://www.openchart.org/
 <hr>
 
