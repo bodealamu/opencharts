@@ -14,8 +14,8 @@ def fixed_content():
                      "if you would like to contribute to the code, please do a pull request.")
 
     st.sidebar.subheader("Sever costs")
-    st.sidebar.write("Sever costs for this app is community funded, if you would like to donate please use link below.")
-    st.sidebar.write('https://www.buymeacoffee.com/olabodealamu')
+    # st.sidebar.write("Sever costs for this app is community funded, if you would like to donate please use link below.")
+    # st.sidebar.write('https://www.buymeacoffee.com/olabodealamu')
 
 
 def views(link):
@@ -35,6 +35,7 @@ def views(link):
                     "set the chart options and download the chart.")
         st.subheader("Data safety and security")
         st.write("The data you upload is safe and is never stored anywhere.")
+        # st.write('../logo.jpg')
         st.sidebar.subheader('Settings')
 
         st.sidebar.subheader("Upload your data")
