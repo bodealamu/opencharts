@@ -13,7 +13,7 @@ def fixed_content():
     st.sidebar.write("This app is open source and maintained by Olabode Alamu, "
                      "if you would like to contribute to the code, please do a pull request.")
 
-    st.sidebar.subheader("Sever costs")
+    #st.sidebar.subheader("Sever costs")
     # st.sidebar.write("Sever costs for this app is community funded, if you would like to donate please use link below.")
     # st.sidebar.write('https://www.buymeacoffee.com/olabodealamu')
 
