@@ -4,3 +4,4 @@ xlrd
 kaleido
 psutil
 pandas
+openpyxl>=3.0.9
