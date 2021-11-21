@@ -42,6 +42,8 @@ incorporate the following features:<br>
 dropping of columns, etc. 
 3) (Stretch goal) Support for data import from other locations (for e.g. database,  url links).
 4) (Stretch goal) Spreadsheet editing functionality.
+5) Automatic plot generation.
+6) Dataframe transformation.
 
 ## How to run the app
 1) Clone this repo.
